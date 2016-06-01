@@ -1,0 +1,140 @@
+.feed-refresh {
+    position: absolute;
+    top: -60px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    will-change: transform;
+}
+
+.feed-refresh .pull-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+    margin: 20px 5px 0 0;
+    background: url('http://n.sinaimg.cn/finance/toutiao/images/common-icon-pull.png') no-repeat 0 0;
+    background-size: 99% auto;
+    -webkit-transition: -webkit-transform .45s ease;
+    transition: transform .45s ease
+}
+
+.feed-refresh>.loading-icon,.feed-refresh>.loading-words,.feed-refresh>.release-words {
+    display: none
+}
+
+.feed-refresh.release>.pull-icon {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+
+.feed-refresh.release>.loading-icon,.feed-refresh.release>.pull-words,.feed-refresh.release>.loading-words {
+    display: none
+}
+
+.feed-refresh.release>.release-words {
+    display: inline
+}
+
+.feed-refresh.load>.pull-icon,.feed-refresh.load>.pull-words,.feed-refresh.load>.release-words {
+    display: none
+}
+
+.feed-refresh.load>.loading-icon {
+    display: inline-block
+}
+
+.feed-refresh.load>.loading-words {
+    display: inline
+}
+
+.feed-refresh.translate {
+    -webkit-transition: -webkit-transform .25s ease;
+    transition: transform .25s ease
+}
+
+.feed-action-box.translate {
+    -webkit-transition: -webkit-transform .25s ease;
+    transition: transform .25s ease
+}
+
+.feed-loading {
+    display: none;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    font-size: 13px;
+    color: #999
+}
+
+.feed-loading>.loading-failed,.feed-loading>.loading-no-more {
+    display: none
+}
+
+.feed-loading.show {
+    display: block
+}
+
+.feed-loading.failed>.loading-failed {
+    display: block
+}
+
+.feed-loading.failed>.loading,.feed-loading.failed>.loading-no-more {
+    display: none
+}
+
+.feed-loading.no-more {
+    display: block
+}
+
+.feed-loading.no-more>.loading-no-more {
+    display: block
+}
+
+.feed-loading.no-more>.loading,.feed-loading.no-more>.loading-failed {
+    display: none
+}
+
+.feed-empty {
+    display: none;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #999;
+    text-align: center
+}
+
+.loading-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+    margin: 20px 5px 0 0;
+    background: url('http://n.sinaimg.cn/finance/toutiao/images/common-icon-loading.png') no-repeat 0 0;
+    background-size: 100% auto;
+    -webkit-animation: loading 1s linear 0s infinite;
+    animation: loading 1s linear 0s infinite
+}
+
+@-webkit-keyframes loading {
+    from {
+        -webkit-transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes loading {
+    from {
+        transform: rotate(0)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}

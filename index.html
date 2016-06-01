@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>下拉加载</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- demo css -->
+    <style>
+    html,body{overflow-x: hidden;} body {background-color:#f9f9f9;font-size:18px;font-family:'Microsoft Yahei','Simsun','Gotham-Medium',Arial;color:#333;-webkit-text-size-adjust: none;-moz-text-size-adjust:none;-ms-text-size-adjust: none;text-size-adjust: none;-webkit-tap-highlight-color: rgba(0,0,0,0);} html, body, span, div, p, a, table, tbody, td, h1, h2, h3, img, form, font, strong, b, i, dl, dt, dd, ol, ul, li, dl, dd, dt, iframe, label, blockquote, input, em, dfn,button {padding:0; margin:0;list-style:none;font-style:normal;font-size: 16px;} .dt_banner { margin-bottom: 6px; } .information_list { padding-left: 16px; } .information { padding: 11px 17px; overflow: auto; background-color: #fff; } .info { margin-top: 4px; } .thumbnail { width: 95px; height: 72px; margin-left: 22px; } .keyword_to_display { margin-bottom: 5px; line-height: 16.5px; } .keyword_to_display + .title { min-height: 46px; } .title { line-height: 19px; min-height: 46px; } .origin_website { margin-top: 5px; margin-bottom: 2px; line-height: 13.5px; font-size: 12px; } * { box-sizing: border-box; } body { background-color: #eee; } a {text-decoration: none; color: initial; } .dt_banner img { width: 100%; } .information { border-bottom: solid 1px #F5F5F5; overflow: auto; } .thumbnail { float: right; } .thumbnail img { width: 100%; } .keyword_to_display {color: #333; font-weight: bold; } .title { color: #333; } .origin_website { color: #C5C5C5; }
+    </style>
+    <!-- demo css end -->
+    <!-- 下拉加载模块资源 -->
+    <link rel="stylesheet" href="css/PullToRequest.css">
+    <script src="js/PullToRequest.js"></script>
+    <!-- 下拉加载模块资源 end -->
+</head>
+
+<body>
+    <div class="list_w">
+        <!-- 下拉加载模块html部分，注意必须和list部分同级 -->
+        <div class="feed-refresh">
+            <i class="loading-icon"></i>
+            <i class="pull-icon"></i>
+            <span class="loading-words">正在加载...</span>
+            <span class="pull-words">下拉刷新</span>
+            <span class="release-words">松开立即刷新</span>
+        </div>
+        <!-- 下拉加载模块html部分 end -->
+        <!-- list部分 -->
+        <ul id="list">
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+            <li class="information"><a href="http://finance.sina.cn/j_uc.d.html?docid=fxsqxxu4468389&amp;wm=3229"><div class="thumbnail"><img data-src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg" src="http://k.sinaimg.cn/www/cj/zl/stock/20160411/U4276P31T1D24558438F6002DT20160411162209.jpg/w120h90l50t1ef4.jpg"></div><div class="info"><div class="keyword_to_display">老艾</div><div class="title">老艾侃股：熊市和牛市生存法则大不同</div><div class="origin_website"></div></div></a></li>
+        </ul>
+        <!-- list部分 end -->
+    </div>
+    <script>
+    // 创建下拉加载业务对象
+    var p0 = pullToRequest({
+        // 动画运动对象
+        list : 'list',
+        // 可选，监听触摸的把手元素，一般就是list本身
+        // handle : 'list',
+        // 拉取过界后的响应回调
+        onPullSuc : function () {
+            // 异步业务逻辑，这里假设2s后复位
+            setTimeout(function () {
+                p0.homing();
+            }, 2000);
+        }
+    });
+    </script>
+</body>
+
+</html>

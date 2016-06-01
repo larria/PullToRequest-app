@@ -1,0 +1,46 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><link href='http://news.sina.com.cn/268/2014/1203/markfx.css' rel='stylesheet' type='text/css'><title>readme</title><link rel="stylesheet" href="http://news.sina.com.cn/268/2014/1210/monokai_sublime.css"><script src="http://news.sina.com.cn/268/2014/1210/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>移动端下拉加载通用功能模块</h1>
+<hr />
+<p><code>html/css资源借鉴自头条项目部分（王浩男）：http://cj.sina.cn/</code></p>
+<h4 id="_2"><a name="user-content-_2" href="#_2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>资源引入</h4>
+<pre><code class="html">&lt;!-- 建议在head标签引入 --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/PullToRequest.css&quot;&gt;
+&lt;script src=&quot;js/PullToRequest.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h4 id="html"><a name="user-content-html" href="#html" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>html</h4>
+<pre><code class="html">&lt;!-- 必须有父容器 --&gt;
+&lt;div class=&quot;list_w&quot;&gt;
+    &lt;!-- 下拉加载模块html部分，注意必须和list部分同级 --&gt;
+    &lt;div class=&quot;feed-refresh&quot;&gt;
+        &lt;i class=&quot;loading-icon&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;pull-icon&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;loading-words&quot;&gt;正在加载...&lt;/span&gt;
+        &lt;span class=&quot;pull-words&quot;&gt;下拉刷新&lt;/span&gt;
+        &lt;span class=&quot;release-words&quot;&gt;松开立即刷新&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;!-- 下拉加载模块html部分 end --&gt;
+    &lt;!-- list部分，必须具备明确id --&gt;
+    &lt;ul id=&quot;list&quot;&gt;
+        ...
+    &lt;/ul&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h4 id="js"><a name="user-content-js" href="#js" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>业务JS调用</h4>
+<pre><code class="javascript">// 创建下拉加载业务对象
+var p0 = pullToRequest({
+    // 动画运动对象
+    list : 'list',
+    // 可选，监听触摸的把手元素，一般就是list本身
+    // handle : 'list',
+    // 拉取过界后的响应回调
+    onPullSuc : function () {
+        // 异步业务逻辑，这里假设2s后复位
+        setTimeout(function () {
+            p0.homing();
+        }, 2000);
+    }
+});
+</code></pre>
+
+<hr /></article></body></html>
